@@ -1,0 +1,32 @@
+
+<div class="container my-5">
+    <h1 class="mb-3">Add student</h1>
+    <div class="row">
+        <div class="col-lg-6 col-12">
+            <form #form="ngForm" (ngSubmit)="addStudent()">
+                <div class="form-group">
+                  <label for="name">First name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.firstName">
+                </div>
+                <div class="form-group">
+                    <label for="name">Last name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.lastName">
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Date of birth</label>
+                    <input type="date" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.dateOfBirth">
+                  </div>
+                  <div>
+                    <label>Gender:</label>
+                 
+                    <input type="radio" name="gender" [value]="false" [(ngModel)]="add.gender" />  Male
+                    <input type="radio" name="gender" [value]="true" [(ngModel)]="add.gender" />  Female 
+                  </div>
+                 
+                                         
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+        </div>
+    </div>
+    
+    </div>
