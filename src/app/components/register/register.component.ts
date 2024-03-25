@@ -27,9 +27,7 @@ export class RegisterComponent {
 
 
   onSubmit() {
- 
-
-    if (this.signUpForm.invalid) {
+    if (!this.signUpForm.invalid || !this.areAllInputsNull()) {
       let signUpObj = {
         ...this.signUpForm.value,
      
@@ -53,5 +51,9 @@ export class RegisterComponent {
      
       this.submitted = true;
     }
+  }
+  areAllInputsNull(): boolean {
+    const formValues = this.signUpForm.value;
+    return Object.values(formValues).every(value => value === null || value === '');
   }
 }
