@@ -25,7 +25,7 @@ export class StudentAddComponent {
         this.router.navigate(['student-list']);
       },
       error: (error) => {
-       alert(error.message);
+       console.log(error.message);
         
       }
     });
