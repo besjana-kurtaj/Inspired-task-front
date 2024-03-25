@@ -11,10 +11,10 @@ import { UserService } from 'src/app/Services/user.service';
 export class LoginComponent {
  public loginForm!: FormGroup;
   type: string = 'password';
-  submitted:boolean =false;
+
   constructor(
     private fb: FormBuilder,
-    private auth: UserService,
+    private userService: UserService,
     private router: Router,
    
   ) {}
@@ -26,17 +26,13 @@ export class LoginComponent {
     });
   }
   onSubmit() {  
-    if(this.loginForm.invalid){    
-      this.auth.login(this.loginForm.value).subscribe({
+     this.userService.login(this.loginForm.value).subscribe({
         next: (res) => {
           this.router.navigate(['user-list'])     
         },
         error: (err) => {
           alert(err.error.message)
         },
-      }); 
-    }else{
-      this.submitted=true;
-    }  
+      });   
   }
 }
