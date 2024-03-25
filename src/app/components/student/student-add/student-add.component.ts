@@ -16,10 +16,7 @@ export class StudentAddComponent {
    gender:false
 
   }
-  genders = [
-    { value: true, label: 'Male' },
-    { value: false, label: 'Female' },
-  ];
+
   
   constructor(private studentService:StudentService, private router:Router){}
   addStudent(){
@@ -33,7 +30,5 @@ export class StudentAddComponent {
       }
     });
   }
-  // onChange(event: any) {
-  //   this.add.gender = event.target.value;
-  // }
+
 }

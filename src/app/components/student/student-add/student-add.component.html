@@ -16,15 +16,15 @@
                     <label for="name">Date of birth</label>
                     <input type="date" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.dateOfBirth">
                   </div>
-                  <div>
-                    <label>Gender:</label>
+                  <div class="my-1">
+                    <label class="mx-1 ">Gender:</label>
                  
                     <input type="radio" name="gender" [value]="false" [(ngModel)]="add.gender" />  Male
                     <input type="radio" name="gender" [value]="true" [(ngModel)]="add.gender" />  Female 
                   </div>
                  
                                          
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary my-2">Save</button>
               </form>
         </div>
     </div>
