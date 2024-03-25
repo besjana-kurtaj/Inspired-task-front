@@ -11,14 +11,15 @@ import { UserService } from 'src/app/Services/user.service';
 export class RegisterComponent {
   public signUpForm!: FormGroup;
   type: string = 'password';
+  submitted:boolean=false;
  
   constructor(private fb : FormBuilder, private auth: UserService, private router: Router) { }
 
   ngOnInit() {
     this.signUpForm = this.fb.group({
-      firstName:['', Validators.required],
-      lastName:['', Validators.required],
-      userName:['', Validators.required],     
+      firstName:['', Validators.required, Validators.min(2), Validators.max(50)],
+      lastName:['', Validators.required, Validators.min(2), Validators.max(50)],
+      userName:['', Validators.required, Validators.min(2), Validators.max(50)],     
       password:['', Validators.required]
     })
   }
@@ -26,12 +27,14 @@ export class RegisterComponent {
 
 
   onSubmit() {
-  
-      // console.log(this.signUpForm.value);
+ 
+
+    if (this.signUpForm.invalid) {
       let signUpObj = {
         ...this.signUpForm.value,
      
       }
+      
       this.auth.signUp(signUpObj)
       .subscribe({
         next:(res=>{
@@ -45,6 +48,10 @@ export class RegisterComponent {
           alert(err?.error.message)
         })
       })
-   
+     
+    }else{
+     
+      this.submitted = true;
+    }
   }
 }

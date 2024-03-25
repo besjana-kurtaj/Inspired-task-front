@@ -6,15 +6,15 @@
             <form #form="ngForm" (ngSubmit)="addStudent()">
                 <div class="form-group">
                   <label for="name">First name</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.firstName">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.firstName" required>
                 </div>
                 <div class="form-group">
                     <label for="name">Last name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.lastName">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.lastName" required>
                   </div>
                   <div class="form-group">
                     <label for="name">Date of birth</label>
-                    <input type="date" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.dateOfBirth">
+                    <input type="date" class="form-control" id="name" name="name" placeholder="Enter name" [(ngModel)]="add.dateOfBirth" required>
                   </div>
                   <div class="my-1">
                     <label class="mx-1 ">Gender:</label>

@@ -10,10 +10,16 @@
                         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                             <div class="form-group pt-3">
                              <input formControlName="username"  class="form-control" type="text" placeholder="Username" required> 
+                             <div *ngIf="submitted &&loginForm.get('userName')?.hasError('required')">
+                                Username is required.
+                              </div>
                             </div>
                             <div class="form-group pt-3">
                             <input formControlName="password"  class="form-control" [type]="type" placeholder="Password">                                    
-                            </div>
+                            <div *ngIf="submitted &&loginForm.get('password')?.hasError('required')">
+                                Password is required.
+                              </div>    
+                        </div>
                             <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Login</button>
                         </form>
                     </div>
