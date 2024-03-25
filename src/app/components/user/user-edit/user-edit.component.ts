@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user.service';
@@ -19,6 +20,7 @@ export class UserEditComponent {
       this.userService.getUserById(this.userId).subscribe(users => {
       
         this.user = users;
+        this.user.dateOfBirth = formatDate(this.user.dateOfBirth, 'yyyy-MM-dd', 'en-US');
       });
     });
   }
@@ -28,7 +30,7 @@ export class UserEditComponent {
         this.router.navigate(['user-list']);
       },
       error => {
-        console.error('Error updating product:', error);
+        console.error('Error:', error);
        
       }
     );
